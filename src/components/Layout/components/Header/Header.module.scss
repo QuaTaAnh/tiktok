@@ -19,14 +19,23 @@
     justify-content: space-between;
 }
 
-.logo {
+.search,
+.search-result {
+    width: 361px;
+}
+
+.search-title {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+    padding: 5px 12px;
 }
 
 .search {
     position: relative;
     display: flex;
     height: var(--search-height);
-    width: 361px;
     background-color: rgba(22, 24, 35, 0.06);
     border-radius: 92px;
     border: 1.5px solid transparent;
@@ -84,4 +93,62 @@
     &:active {
         background-color: rgba(22, 24, 35, 0.06);
     }
+}
+
+.action {
+    display: flex;
+    flex-direction: row;
+}
+
+.upload-btn {
+    display: flex;
+    align-items: center;
+    min-width: 105px;
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 2px;
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.upload-plus {
+    font-size: 17px;
+    margin-right: 8px;
+}
+
+.upload-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.login-btn {
+    height: 36px;
+    width: 100px;
+    border-radius: 4px;
+    border: none;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(254, 44, 85, 1);
+    margin-left: 16px;
+    font-size: 17px;
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.06),
+                rgba(0, 0, 0, 0.06)
+            ),
+            #fe2c55;
+    }
+}
+
+.more-btn {
+    font-size: 20px;
+    padding: 4px;
+    margin-left: 16px;
+    display: block;
 }
