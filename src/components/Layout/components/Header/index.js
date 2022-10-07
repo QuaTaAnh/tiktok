@@ -20,6 +20,7 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
+import { Wrapper as Button } from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -83,14 +84,12 @@ function Header() {
                 <div className={cx('action')}>
                     {/* Btn-upload */}
                     <div className={cx('upload-btn')}>
-                        <FontAwesomeIcon
-                            className={cx('upload-plus')}
-                            icon={faPlus}
-                        />
-                        <h4 className={cx('upload-title')}>Tải lên</h4>
+                        <Button title="Tải lên" icon={faPlus} />
                     </div>
                     {/* Btn-login */}
-                    <button className={cx('login-btn')}>Đăng nhập</button>
+                    <div className={cx('login-btn')}>
+                        <Button title="Đăng nhập" />
+                    </div>
                     {/* More Dot */}
                     <Tippy
                         arrow={true}
@@ -105,72 +104,28 @@ function Header() {
                                 <PopperWrapper>
                                     <ul className={cx('tab-items')}>
                                         <li className={cx('tab-item')}>
-                                            <a>
-                                                <FontAwesomeIcon
-                                                    className={cx(
-                                                        'tab-item-icon',
-                                                    )}
-                                                    icon={faLanguage}
-                                                />
-                                                <span
-                                                    className={cx(
-                                                        'tab-item-title',
-                                                    )}
-                                                >
-                                                    Tiếng Việt
-                                                </span>
-                                            </a>
+                                            <Button
+                                                title="Tiếng Việt"
+                                                icon={faLanguage}
+                                            />
                                         </li>
                                         <li className={cx('tab-item')}>
-                                            <a>
-                                                <FontAwesomeIcon
-                                                    className={cx(
-                                                        'tab-item-icon',
-                                                    )}
-                                                    icon={faCircleQuestion}
-                                                />
-                                                <span
-                                                    className={cx(
-                                                        'tab-item-title',
-                                                    )}
-                                                >
-                                                    Phản hồi và trợ giúp
-                                                </span>
-                                            </a>
+                                            <Button
+                                                title="Phản hồi và trợ giúp"
+                                                icon={faCircleQuestion}
+                                            />
                                         </li>
                                         <li className={cx('tab-item')}>
-                                            <a>
-                                                <FontAwesomeIcon
-                                                    className={cx(
-                                                        'tab-item-icon',
-                                                    )}
-                                                    icon={faKeyboard}
-                                                />
-                                                <span
-                                                    className={cx(
-                                                        'tab-item-title',
-                                                    )}
-                                                >
-                                                    Phím tắt trên bàn phím
-                                                </span>
-                                            </a>
+                                            <Button
+                                                title="Phím tắt trên bàn phím"
+                                                icon={faKeyboard}
+                                            />
                                         </li>
                                         <li className={cx('tab-item')}>
-                                            <a>
-                                                <FontAwesomeIcon
-                                                    className={cx(
-                                                        'tab-item-icon',
-                                                    )}
-                                                    icon={faMoon}
-                                                />
-                                                <span
-                                                    className={cx(
-                                                        'tab-item-title',
-                                                    )}
-                                                >
-                                                    Chế độ tối
-                                                </span>
-                                            </a>
+                                            <Button
+                                                title="Chế độ tối"
+                                                icon={faMoon}
+                                            />
                                         </li>
                                     </ul>
                                 </PopperWrapper>
