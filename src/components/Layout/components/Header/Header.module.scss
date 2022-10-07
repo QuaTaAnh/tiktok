@@ -22,6 +22,11 @@
 .search,
 .search-result {
     width: 361px;
+    display: none;
+}
+
+.search-result {
+    margin-top: -2px;
 }
 
 .search-title {
@@ -30,6 +35,10 @@
     font-weight: 600;
     color: rgba(22, 24, 35, 0.5);
     padding: 5px 12px;
+}
+
+.tab-account-search {
+    padding-right: 8px;
 }
 
 .search {
@@ -68,6 +77,11 @@
         border-color: rgba(22, 24, 35, 0.2);
     }
 }
+
+.clear {
+    cursor: pointer;
+}
+
 .clear,
 .loading {
     position: absolute;
@@ -147,8 +161,45 @@
 }
 
 .more-btn {
-    font-size: 20px;
+    font-size: 18px;
     padding: 4px;
     margin-left: 16px;
     display: block;
+    cursor: pointer;
+    color: #161823;
+}
+
+.tab-more {
+    width: 223px;
+    height: 186px;
+    margin-top: -4px;
+}
+
+.tab-items {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    cursor: pointer;
+    padding-bottom: 8px;
+}
+
+.tab-item {
+    padding: 10px 8px 10px 16px;
+    display: flex;
+    align-items: center;
+    &:hover {
+        width: 100%;
+        background-color: rgba(22, 24, 35, 0.03);
+        overflow: hidden;
+    }
+}
+
+.tab-item-icon {
+    color: rgba(22, 24, 35, 1);
+}
+
+.tab-item-title {
+    margin-left: 6px;
+    color: rgba(22, 24, 35, 1);
+    font-size: 16px;
 }

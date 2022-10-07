@@ -1,13 +1,19 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faKeyboard, faMoon } from '@fortawesome/free-regular-svg-icons';
 import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
+import 'tippy.js/animations/scale.css';
 import {
+    faCircleQuestion,
     faCircleXmark,
     faEllipsisVertical,
+    faLanguage,
     faMagnifyingGlass,
     faPlus,
     faSpinner,
+    faSquare,
+    faSquareArrowUpRight,
 } from '@fortawesome/free-solid-svg-icons';
 //
 import styles from './Header.module.scss';
@@ -44,11 +50,13 @@ function Header() {
                             {...attrs}
                         >
                             <PopperWrapper>
-                                <h4 className={cx('search-title')}>
-                                    Tài khoản
-                                </h4>
-                                <div className={cx('search-account')}>
-                                    <AccountItem />
+                                <div className={cx('tab-account-search')}>
+                                    <h4 className={cx('search-title')}>
+                                        Tài khoản
+                                    </h4>
+                                    <div className={cx('search-account')}>
+                                        <AccountItem />
+                                    </div>
                                 </div>
                             </PopperWrapper>
                         </div>
@@ -84,9 +92,95 @@ function Header() {
                     {/* Btn-login */}
                     <button className={cx('login-btn')}>Đăng nhập</button>
                     {/* More Dot */}
-                    <div className={cx('more-btn')}>
-                        <FontAwesomeIcon icon={faEllipsisVertical} />
-                    </div>
+                    <Tippy
+                        arrow={true}
+                        delay={[0, 1000]}
+                        interactive={true} //giúp tương tác với nút thêm
+                        render={(attrs) => (
+                            <div
+                                className={cx('tab-more')}
+                                tabIndex="-1"
+                                {...attrs}
+                            >
+                                <PopperWrapper>
+                                    <ul className={cx('tab-items')}>
+                                        <li className={cx('tab-item')}>
+                                            <a>
+                                                <FontAwesomeIcon
+                                                    className={cx(
+                                                        'tab-item-icon',
+                                                    )}
+                                                    icon={faLanguage}
+                                                />
+                                                <span
+                                                    className={cx(
+                                                        'tab-item-title',
+                                                    )}
+                                                >
+                                                    Tiếng Việt
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li className={cx('tab-item')}>
+                                            <a>
+                                                <FontAwesomeIcon
+                                                    className={cx(
+                                                        'tab-item-icon',
+                                                    )}
+                                                    icon={faCircleQuestion}
+                                                />
+                                                <span
+                                                    className={cx(
+                                                        'tab-item-title',
+                                                    )}
+                                                >
+                                                    Phản hồi và trợ giúp
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li className={cx('tab-item')}>
+                                            <a>
+                                                <FontAwesomeIcon
+                                                    className={cx(
+                                                        'tab-item-icon',
+                                                    )}
+                                                    icon={faKeyboard}
+                                                />
+                                                <span
+                                                    className={cx(
+                                                        'tab-item-title',
+                                                    )}
+                                                >
+                                                    Phím tắt trên bàn phím
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li className={cx('tab-item')}>
+                                            <a>
+                                                <FontAwesomeIcon
+                                                    className={cx(
+                                                        'tab-item-icon',
+                                                    )}
+                                                    icon={faMoon}
+                                                />
+                                                <span
+                                                    className={cx(
+                                                        'tab-item-title',
+                                                    )}
+                                                >
+                                                    Chế độ tối
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </PopperWrapper>
+                            </div>
+                        )}
+                    >
+                        <div className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </div>
+                    </Tippy>
                 </div>
             </div>
         </header>
