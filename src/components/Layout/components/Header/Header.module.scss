@@ -17,6 +17,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 0 24px 0 20px;
 }
 
 .search,
@@ -172,9 +173,11 @@
 }
 
 .tab-more {
+    position: relative;
     width: 223px;
     height: 186px;
     margin-top: -4px;
+    right: 70px;
 }
 
 .tab-items {

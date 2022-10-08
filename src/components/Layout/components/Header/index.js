@@ -88,7 +88,7 @@ function Header() {
                     </div>
                     {/* Btn-login */}
                     <div className={cx('login-btn')}>
-                        <Button title="Đăng nhập" />
+                        <Button title="Đăng nhập" color />
                     </div>
                     {/* More Dot */}
                     <Tippy

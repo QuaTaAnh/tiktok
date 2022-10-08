@@ -1,3 +1,39 @@
-.icon {
+.color {
+    span {
+        color: #fff;
+    }
+}
+.icon-btn {
     margin-right: 8px;
+}
+
+.primary {
+    .icon-btn {
+        width: 23px;
+        height: 21px;
+    }
+    span {
+        margin-left: 8px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+.active {
+    .icon-btn,
+    span {
+        color: var(--primary);
+    }
+    span {
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+.dispath {
+    span {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--primary);
+    }
 }
