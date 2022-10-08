@@ -1,20 +1,48 @@
 .wrapper {
-    min-width: 100px;
+    display: flex;
+    align-items: center;
     font-size: 1.6rem;
-    padding: 8px 4px;
+    min-width: 100px;
+    padding: 9px 8px;
     font-weight: 700;
     border-radius: 4px;
     cursor: pointer;
     border: 1px solid transparent;
     background-color: var(--white);
+
+    + .wrapper {
+        margin-left: 8px;
+    }
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 }
 
-//Button Type
+.icon {
+    margin-right: 8px;
+}
+
+// Button Type
+.rounded {
+    border-radius: 999px;
+    color: rgba(22, 24, 35, 0.75);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    padding: 0 8px;
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
 .primary {
     color: var(--white);
     background-color: var(--primary);
+    border-color: var(--primary);
 
     &:hover {
+        border-color: var(--primary);
         background: linear-gradient(
                 0deg,
                 rgba(0, 0, 0, 0.06),
@@ -29,12 +57,27 @@
     border-color: var(--primary);
 
     &:hover {
+        border-color: var(--primary);
         background-color: rgba(254, 44, 85, 0.06);
     }
 }
 
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+//Disabled
+
 //Button Size
 .small {
+    font-size: 1.2rem;
     min-width: 88px;
     min-height: 28px;
+}
+
+.large {
+    min-width: 148px;
+    padding: 14px 16px;
 }

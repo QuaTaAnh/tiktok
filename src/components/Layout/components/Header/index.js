@@ -84,11 +84,13 @@ function Header() {
                 </Tippy>
                 <div className={cx('action')}>
                     {/* Btn-upload */}
-                    <Button icon={faPlus} outline small>
-                        Tải lên
-                    </Button>
+
                     {/* Btn-login */}
-                    <Button primary>Đăng nhập</Button>
+                    <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                        Upload
+                    </Button>
+                    <Button primary>Tải ứng dụng</Button>
+
                     {/* More Dot */}
                     <Tippy
                         arrow={true}

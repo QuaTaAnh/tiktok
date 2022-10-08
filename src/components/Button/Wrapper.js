@@ -10,16 +10,23 @@ function Wrapper({
     href,
     onClick,
     children,
-    primary,
-    outline,
-    small,
-    icon,
+    primary = false,
+    outline = false,
+    small = false,
+    large = false,
+    text = false,
+    disabled = false,
+    rounded = false,
+    leftIcon,
     ...passProps
 }) {
     const classes = cx('wrapper', {
         primary,
         outline,
         small,
+        text,
+        disabled,
+        rounded,
     });
 
     let Component = 'Button';
@@ -27,6 +34,12 @@ function Wrapper({
         onClick,
         ...passProps,
     };
+
+    //Nếu có disabled thì không click được
+    if (disabled) {
+        delete props.disabled;
+    }
+
     if (to) {
         props.to = to;
         Component = Link;
@@ -36,8 +49,8 @@ function Wrapper({
     }
     return (
         <Component className={classes} {...props}>
-            <FontAwesomeIcon className={cx('icon-btn')} icon={icon} />
-            <span>{children}</span>
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            <span className={cx('title')}>{children}</span>
         </Component>
     );
 }
