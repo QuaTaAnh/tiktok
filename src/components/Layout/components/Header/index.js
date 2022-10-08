@@ -12,8 +12,6 @@ import {
     faMagnifyingGlass,
     faPlus,
     faSpinner,
-    faSquare,
-    faSquareArrowUpRight,
 } from '@fortawesome/free-solid-svg-icons';
 //
 import styles from './Header.module.scss';
@@ -29,7 +27,7 @@ function Header() {
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResults([1, 2, 3]);
+            setSearchResults([]);
         }, 0);
     }, []);
 
@@ -52,12 +50,15 @@ function Header() {
                         >
                             <PopperWrapper>
                                 <div className={cx('tab-account-search')}>
-                                    <h4 className={cx('search-title')}>
+                                    <h4 className={cx('tab-title')}>
                                         Tài khoản
                                     </h4>
-                                    <div className={cx('search-account')}>
-                                        <AccountItem />
-                                    </div>
+                                    <AccountItem />
+                                    <AccountItem />
+                                    <AccountItem />
+                                    <AccountItem />
+                                    <AccountItem />
+                                    <AccountItem />
                                 </div>
                             </PopperWrapper>
                         </div>
@@ -83,13 +84,11 @@ function Header() {
                 </Tippy>
                 <div className={cx('action')}>
                     {/* Btn-upload */}
-                    <div className={cx('upload-btn')}>
-                        <Button title="Tải lên" icon={faPlus} />
-                    </div>
+                    <Button icon={faPlus} outline small>
+                        Tải lên
+                    </Button>
                     {/* Btn-login */}
-                    <div className={cx('login-btn')}>
-                        <Button title="Đăng nhập" color />
-                    </div>
+                    <Button primary>Đăng nhập</Button>
                     {/* More Dot */}
                     <Tippy
                         arrow={true}
@@ -104,28 +103,24 @@ function Header() {
                                 <PopperWrapper>
                                     <ul className={cx('tab-items')}>
                                         <li className={cx('tab-item')}>
-                                            <Button
-                                                title="Tiếng Việt"
-                                                icon={faLanguage}
-                                            />
+                                            <Button icon={faLanguage}>
+                                                Tiếng Việt
+                                            </Button>
                                         </li>
                                         <li className={cx('tab-item')}>
-                                            <Button
-                                                title="Phản hồi và trợ giúp"
-                                                icon={faCircleQuestion}
-                                            />
+                                            <Button icon={faCircleQuestion}>
+                                                Phản hồi và trợ giúp
+                                            </Button>
                                         </li>
                                         <li className={cx('tab-item')}>
-                                            <Button
-                                                title="Phím tắt trên bàn phím"
-                                                icon={faKeyboard}
-                                            />
+                                            <Button icon={faKeyboard}>
+                                                Phím tắt trên bàn phím
+                                            </Button>
                                         </li>
                                         <li className={cx('tab-item')}>
-                                            <Button
-                                                title="Chế độ tối"
-                                                icon={faMoon}
-                                            />
+                                            <Button icon={faMoon}>
+                                                Chế độ tối
+                                            </Button>
                                         </li>
                                     </ul>
                                 </PopperWrapper>
