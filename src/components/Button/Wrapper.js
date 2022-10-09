@@ -18,6 +18,7 @@ function Wrapper({
     disabled = false,
     rounded = false,
     leftIcon,
+    menuItem,
     ...passProps
 }) {
     const classes = cx('wrapper', {
@@ -27,6 +28,7 @@ function Wrapper({
         text,
         disabled,
         rounded,
+        menuItem,
     });
 
     let Component = 'Button';

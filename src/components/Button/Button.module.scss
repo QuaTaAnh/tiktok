@@ -20,7 +20,10 @@
 }
 
 .icon {
+    display: inline-block;
     margin-right: 8px;
+    width: 20px;
+    text-align: center;
 }
 
 // Button Type
@@ -68,7 +71,16 @@
     }
 }
 
-//Disabled
+//Button-Menu
+.menuItem {
+    width: 100%;
+    padding: 11px 8px;
+    border-radius: 0;
+    color: #161823;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
 
 //Button Size
 .small {

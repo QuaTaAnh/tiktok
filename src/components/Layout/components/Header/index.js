@@ -1,16 +1,15 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faKeyboard, faMoon } from '@fortawesome/free-regular-svg-icons';
 import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
-import 'tippy.js/animations/scale.css';
 import {
-    faCircleQuestion,
     faCircleXmark,
+    faEarthAsia,
     faEllipsisVertical,
-    faLanguage,
+    faKeyboard,
     faMagnifyingGlass,
     faPlus,
+    faQuestionCircle,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 //
@@ -19,8 +18,24 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { Wrapper as Button } from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'Tiếng Việt',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faQuestionCircle} />,
+        title: 'Phản hồi và trợ giúp',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Phím tắt từ bàn phím ',
+    },
+];
 
 function Header() {
     const [searchResults, setSearchResults] = useState([]);
@@ -83,56 +98,17 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('action')}>
-                    {/* Btn-upload */}
-
-                    {/* Btn-login */}
                     <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                         Upload
                     </Button>
-                    <Button primary>Tải ứng dụng</Button>
 
-                    {/* More Dot */}
-                    <Tippy
-                        arrow={true}
-                        delay={[0, 1000]}
-                        interactive={true} //giúp tương tác với nút thêm
-                        render={(attrs) => (
-                            <div
-                                className={cx('tab-more')}
-                                tabIndex="-1"
-                                {...attrs}
-                            >
-                                <PopperWrapper>
-                                    <ul className={cx('tab-items')}>
-                                        <li className={cx('tab-item')}>
-                                            <Button icon={faLanguage}>
-                                                Tiếng Việt
-                                            </Button>
-                                        </li>
-                                        <li className={cx('tab-item')}>
-                                            <Button icon={faCircleQuestion}>
-                                                Phản hồi và trợ giúp
-                                            </Button>
-                                        </li>
-                                        <li className={cx('tab-item')}>
-                                            <Button icon={faKeyboard}>
-                                                Phím tắt trên bàn phím
-                                            </Button>
-                                        </li>
-                                        <li className={cx('tab-item')}>
-                                            <Button icon={faMoon}>
-                                                Chế độ tối
-                                            </Button>
-                                        </li>
-                                    </ul>
-                                </PopperWrapper>
-                            </div>
-                        )}
-                    >
-                        <div className={cx('more-btn')}>
+                    <Button primary>Đăng nhập</Button>
+
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </div>
-                    </Tippy>
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>

@@ -157,47 +157,10 @@
 }
 
 .more-btn {
-    font-size: 18px;
-    padding: 4px;
-    margin-left: 16px;
-    display: block;
+    font-size: 1.8rem;
+    padding: 4px 8px;
+    margin-left: 20px;
+    background-color: transparent;
     cursor: pointer;
     color: #161823;
-}
-
-.tab-more {
-    position: relative;
-    width: 223px;
-    height: 186px;
-    margin-top: -4px;
-    right: 70px;
-}
-
-.tab-items {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    cursor: pointer;
-    padding-bottom: 8px;
-}
-
-.tab-item {
-    padding: 10px 8px 10px 16px;
-    display: flex;
-    align-items: center;
-    &:hover {
-        width: 100%;
-        background-color: rgba(22, 24, 35, 0.03);
-        overflow: hidden;
-    }
-}
-
-.tab-item-icon {
-    color: rgba(22, 24, 35, 1);
-}
-
-.tab-item-title {
-    margin-left: 6px;
-    color: rgba(22, 24, 35, 1);
-    font-size: 16px;
 }
