@@ -50,7 +50,7 @@ function Wrapper({
         Component = 'a';
     }
     return (
-        <Component className={classes} {...props}>
+        <Component className={classes} {...props} onClick={onClick}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             <span className={cx('title')}>{children}</span>
         </Component>
