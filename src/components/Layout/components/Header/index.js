@@ -7,12 +7,10 @@ import 'tippy.js/dist/tippy.css';
 import {
     faCamera,
     faCircleXmark,
-    faCloudUpload,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
     faPlus,
     faQuestionCircle,
     faSignOut,
@@ -25,7 +23,9 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { Wrapper as Button } from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import { faMessage, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { InboxIcon, MessageIcon, SearchIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -152,41 +152,39 @@ function Header() {
                         />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
                 {/* User and Login */}
                 <div className={cx('actions')}>
+                    <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                        Tải lên
+                    </Button>
                     {currentUser ? (
                         <>
-                            <Tippy
-                                delay={[0, 100]}
-                                content="Tải lên"
-                                placement="bottom"
-                            >
-                                <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
-                                </button>
-                            </Tippy>
                             <Tippy
                                 delay={[0, 100]}
                                 content="Hộp thư"
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+
+                            <Tippy
+                                delay={[0, 100]}
+                                content="Hộp thư"
+                                placement="bottom"
+                            >
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
                     ) : (
                         <>
-                            <Button
-                                text
-                                leftIcon={<FontAwesomeIcon icon={faPlus} />}
-                            >
-                                Tải lên
-                            </Button>
                             <Button primary>Đăng nhập</Button>
                         </>
                     )}
@@ -195,10 +193,11 @@ function Header() {
                         onChange={handleMenuChange}
                     >
                         {currentUser ? (
-                            <img
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1665594000&x-signature=g%2Fs83xOEG5FWOntWrVGQFdqPe6s%3D"
+                            <Image
+                                src="https://p162-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-aiso/65d3c6b1d1e205c75536ccf1f26d552d~c5_100x100.jpeg?x-expires=1665594000&x-signature=g%2Fs83xOEG5FWOntWrVGQFdqPe6s%3D"
                                 alt="Nguyen The Anh"
                                 className={cx('user-avatar')}
+                                fallback="https://graph.facebook.com/458480325405263/picture?width=400&height=400"
                             />
                         ) : (
                             <button className={cx('more-btn')}>

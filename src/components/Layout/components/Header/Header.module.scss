@@ -86,6 +86,9 @@
     color: rgba(22, 24, 35, 0.34);
 }
 .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-top-right-radius: 92px;
     border-bottom-right-radius: 92px;
     align-content: center;
@@ -122,15 +125,17 @@
 }
 
 .action-btn {
+    align-items: center;
+    display: flex;
     font-size: 2.2rem;
     color: #161823;
     padding: 4px 6px;
-    margin-left: 12px;
+    margin-left: 16px;
     background-color: transparent;
     cursor: pointer;
-    + .action-btn {
-        margin-left: 24px;
-    }
+    // + .action-btn {
+    //     margin-left: 24px;
+    // }
 }
 .user-avatar {
     width: 32px;

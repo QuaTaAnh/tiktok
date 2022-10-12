@@ -1,4 +1,5 @@
 .wrapper {
+    font-family: 'ProximaNova', sans-serif;
     display: flex;
     align-items: center;
     font-size: 1.6rem;
@@ -66,8 +67,12 @@
 }
 
 .text {
+    min-width: 110px;
+    min-height: 36px;
+    padding: 0 16px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
     &:hover {
-        text-decoration: underline;
+        background-color: rgba(22, 24, 35, 0.03);
     }
 }
 
