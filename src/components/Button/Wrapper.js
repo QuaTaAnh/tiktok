@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
@@ -19,6 +18,7 @@ function Wrapper({
     rounded = false,
     leftIcon,
     menuItem,
+    separate,
     ...passProps
 }) {
     const classes = cx('wrapper', {
@@ -29,6 +29,7 @@ function Wrapper({
         disabled,
         rounded,
         menuItem,
+        separate,
     });
 
     let Component = 'Button';

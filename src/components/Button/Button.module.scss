@@ -73,15 +73,21 @@
 
 //Button-Menu
 .menuItem {
+    position: relative;
     width: 100%;
     padding: 11px 8px;
     border-radius: 0;
     color: #161823;
     line-height: 1.8rem;
+    font-weight: 600;
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
     // padding-left: 24px;
+}
+
+.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
 }
 
 //Button Size

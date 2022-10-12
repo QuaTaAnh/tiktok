@@ -8,9 +8,9 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 
 const cx = classNames.bind(styles);
 
-const defaulFn = () => {};
+const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaulFn }) {
+function Menu({ children, items = [], onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1]; //
 
@@ -35,7 +35,7 @@ function Menu({ children, items = [], onChange = defaulFn }) {
     return (
         <Tippy
             placement="bottom-end"
-            visible
+            offset={[16, 10]}
             delay={[0, 700]}
             interactive={true} //giúp tương tác với nút thêm
             render={(attrs) => (
@@ -55,6 +55,7 @@ function Menu({ children, items = [], onChange = defaulFn }) {
                     </PopperWrapper>
                 </div>
             )}
+            onHide={() => setHistory((prev) => prev.slice(0, 1))} //Khi đang ở trang 2 thoát ra hover lại thì vào trang 1
         >
             {children}
         </Tippy>

@@ -103,57 +103,42 @@
     }
 }
 
-.action {
-    display: flex;
-    flex-direction: row;
-}
-
-.upload-btn {
+.actions {
     display: flex;
     align-items: center;
-    min-width: 105px;
-    height: 36px;
-    padding: 0 16px;
-    border: 1px solid rgba(22, 24, 35, 0.12);
-    border-radius: 2px;
-    &:hover {
-        cursor: pointer;
-        background-color: rgba(22, 24, 35, 0.03);
-    }
 }
 
-.upload-plus {
-    font-size: 17px;
-    margin-right: 8px;
-}
-
-.upload-title {
-    font-style: normal;
-    font-weight: 600;
+.icon-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 38px;
+    border-radius: 8px;
     font-size: 16px;
-    line-height: 24px;
+    font-weight: 600;
+    color: var(--white);
+    background-color: rgba(84, 84, 84, 0.92);
 }
 
-.login-btn {
-    height: 36px;
-    width: 100px;
-    text-align: center;
-    line-height: 36px;
-    border-radius: 4px;
-    border: none;
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(254, 44, 85, 1);
-    margin-left: 16px;
-    font-size: 17px;
-    &:hover {
-        cursor: pointer;
-        background: linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.06),
-                rgba(0, 0, 0, 0.06)
-            ),
-            #fe2c55;
+.action-btn {
+    font-size: 2.2rem;
+    color: #161823;
+    padding: 4px 6px;
+    margin-left: 12px;
+    background-color: transparent;
+    cursor: pointer;
+    + .action-btn {
+        margin-left: 24px;
     }
+}
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    margin-left: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
 }
 
 .more-btn {
