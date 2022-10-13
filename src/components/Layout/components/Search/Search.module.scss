@@ -1,0 +1,88 @@
+.wrapper {
+    --search-height: 46px;
+    --search-top-spacer: 9px;
+    --search-button-width: 52px;
+}
+
+.search,
+.search-result {
+    width: 361px;
+    // display: none;
+}
+
+.tab-title {
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.search {
+    position: relative;
+    display: flex;
+    height: var(--search-height);
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 92px;
+    border: 1.5px solid transparent;
+    padding-left: 16px;
+    input {
+        flex: 1;
+        width: 292px;
+        height: 100%;
+        font-size: 1.6rem;
+        font-weight: 400;
+        background-color: transparent;
+        caret-color: var(--primary);
+        color: #45474f;
+    }
+
+    //Khi focus vào ô input thì search btn mày sẽ đậm lên
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: calc(var(--search-height) - (var(--search-top-spacer) * 2));
+        width: 1px;
+        right: var(--search-button-width);
+        top: var(--search-top-spacer);
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: calc(var(--search-button-width) + 18px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: rgba(22, 24, 35, 0.34);
+}
+.search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 92px;
+    border-bottom-right-radius: 92px;
+    align-content: center;
+    width: var(--search-button-width);
+    line-height: 46px;
+    height: 100%;
+    font-size: 1.8rem;
+    color: #828283;
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}

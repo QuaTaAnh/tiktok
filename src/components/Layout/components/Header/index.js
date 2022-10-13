@@ -1,12 +1,9 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import {
     faCamera,
-    faCircleXmark,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
@@ -14,18 +11,16 @@ import {
     faPlus,
     faQuestionCircle,
     faSignOut,
-    faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 //
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import { Wrapper as Button } from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
-import { InboxIcon, MessageIcon, SearchIcon } from '~/components/Icons';
+import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -85,14 +80,7 @@ const userMenu = [
 ];
 
 function Header() {
-    const [searchResults, setSearchResults] = useState([]);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResults([]);
-        }, 0);
-    }, []);
-
+    const currentUser = true;
     //Handle Logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -103,8 +91,6 @@ function Header() {
         }
     };
 
-    const currentUser = true;
-
     return (
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
@@ -113,49 +99,8 @@ function Header() {
                     <img src={images.logo} alt="Tiktok" />
                 </div>
                 {/*Search*/}
-                <HeadlessTippy
-                    interactive={true} //giúp tương tác với thanh tìm kiếm
-                    visible={searchResults.length > 0} //giá trị tìm kiếm > 0 thì hiện bảng tìm kiếm ở dưới
-                    render={(attrs) => (
-                        <div
-                            className={cx('search-result')}
-                            tabIndex="-1"
-                            {...attrs}
-                        >
-                            <PopperWrapper>
-                                <div className={cx('tab-account-search')}>
-                                    <h4 className={cx('tab-title')}>
-                                        Tài khoản
-                                    </h4>
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                    <AccountItem />
-                                </div>
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input
-                            placeholder="Tìm kiếm tài khoản và video"
-                            spellCheck={false}
-                        />
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <FontAwesomeIcon
-                            className={cx('loading')}
-                            icon={faSpinner}
-                        />
+                <Search />
 
-                        <button className={cx('search-btn')}>
-                            <SearchIcon />
-                        </button>
-                    </div>
-                </HeadlessTippy>
                 {/* User and Login */}
                 <div className={cx('actions')}>
                     <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
