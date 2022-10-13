@@ -57,15 +57,31 @@
     }
 }
 
+.clear {
+    transform: translateY(-50%);
+}
+
 .clear,
 .loading {
     position: absolute;
     right: calc(var(--search-button-width) + 18px);
     top: 50%;
-    transform: translateY(-50%);
     font-size: 16px;
     color: rgba(22, 24, 35, 0.34);
 }
+
+.loading {
+    animation: spinner 1s linear infinite;
+}
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
 .search-btn {
     display: flex;
     align-items: center;
