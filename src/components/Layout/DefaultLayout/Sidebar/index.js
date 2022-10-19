@@ -11,15 +11,31 @@ import {
 } from '~/components/Icons';
 import Menu from './Menu/Menu';
 import MenuItem from './Menu/MenuItem';
+import { config, routes } from '~/config';
 
 const cx = classNames.bind(styles);
 function Sidebar() {
     return (
         <aside className={cx('wrapper')}>
             <Menu>
-                <MenuItem icon={<HomeIcon />} title="Dành cho bạn" />
-                <MenuItem icon={<UserGroupIcon />} title="Đang Follow" />
-                <MenuItem icon={<LiveIcon />} title="LIVE" />
+                <MenuItem
+                    to={routes.home}
+                    icon={<HomeIcon />}
+                    activeIcon={<HomeActiveIcon />}
+                    title="Dành cho bạn"
+                />
+                <MenuItem
+                    to={routes.following}
+                    icon={<UserGroupIcon />}
+                    activeIcon={<UserGroupActiveIcon />}
+                    title="Đang Follow"
+                />
+                <MenuItem
+                    to={routes.live}
+                    icon={<LiveIcon />}
+                    activeIcon={<LiveActiveIcon />}
+                    title="LIVE"
+                />
             </Menu>
         </aside>
     );
