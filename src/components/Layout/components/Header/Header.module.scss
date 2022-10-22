@@ -20,6 +20,10 @@
     padding: 0 var(--default-layout-spacer);
 }
 
+.logo-link {
+    display: flex;
+}
+
 .actions {
     display: flex;
     align-items: center;

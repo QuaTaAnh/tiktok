@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
+import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 import {
     faCamera,
@@ -21,6 +22,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import { routes } from '~/config';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -95,9 +97,9 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
                 {/*Logo*/}
-                <div>
+                <Link to={routes.home} className={cx('logo-link')}>
                     <img src={images.logo} alt="Tiktok" />
-                </div>
+                </Link>
                 {/*Search*/}
                 <Search />
 
@@ -110,7 +112,7 @@ function Header() {
                         <>
                             <Tippy
                                 delay={[0, 100]}
-                                content="Hộp thư"
+                                content="Tin nhắn"
                                 placement="bottom"
                             >
                                 <button className={cx('action-btn')}>

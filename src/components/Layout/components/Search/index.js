@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 
 import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -9,6 +10,7 @@ import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import useDebounce from '~/hooks/useDebounce';
+// import request from '~/utils/request';
 
 const cx = classNames.bind(styles);
 
@@ -28,15 +30,17 @@ function Search() {
             return;
         }
         setLoading(true);
-        fetch(
-            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-                //luôn luôn phải có encodeURI
-                debounced,
-            )}&type=less`,
-        )
-            .then((res) => res.json())
+        //Call API
+        axios
+            .get('https://tiktok.fullstack.edu.vn/api/users/search', {
+                params: {
+                    q: debounced,
+                    type: 'less',
+                },
+            })
             .then((res) => {
-                setSearchResult(res.data);
+                // console.log(res.data.data);
+                setSearchResult(res.data.data);
                 setLoading(false);
             })
             .catch(() => {
@@ -52,6 +56,14 @@ function Search() {
 
     const handleHideResult = () => {
         setShowSearchResult(false);
+    };
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (searchValue.startsWith(' ')) {
+            return;
+        }
+        setSearchValue(searchValue);
     };
     return (
         <HeadlessTippy
@@ -77,7 +89,7 @@ function Search() {
                     value={searchValue}
                     placeholder="Tìm kiếm tài khoản và video"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleChange}
                     onFocus={() => setShowSearchResult(true)}
                 />
                 {!!searchValue && !loading && (
@@ -92,7 +104,10 @@ function Search() {
                     />
                 )}
 
-                <button className={cx('search-btn')}>
+                <button
+                    className={cx('search-btn')}
+                    onMouseDown={(e) => e.preventDefault()}
+                >
                     <SearchIcon />
                 </button>
             </div>

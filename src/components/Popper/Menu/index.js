@@ -56,6 +56,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                 </div>
             )}
             onHide={() => setHistory((prev) => prev.slice(0, 1))} //Khi đang ở trang 2 thoát ra hover lại thì vào trang 1
+            hideOnClick={false}
         >
             {children}
         </Tippy>
