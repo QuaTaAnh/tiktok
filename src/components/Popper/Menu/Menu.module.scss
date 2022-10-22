@@ -10,6 +10,9 @@
 .menu-popper {
     padding-bottom: 8px;
 }
+.menu-body {
+    overflow-y: auto;
+}
 
 //Header-Menu
 .header {
@@ -17,6 +20,7 @@
     height: 50px;
     margin-top: -8px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 .back-btn {
     width: 50px;
