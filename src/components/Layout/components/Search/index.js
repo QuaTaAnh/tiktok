@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 
 import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -10,7 +9,7 @@ import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import useDebounce from '~/hooks/useDebounce';
-// import request from '~/utils/request';
+import * as searchServices from '~/apiServices/searchServices';
 
 const cx = classNames.bind(styles);
 
@@ -29,23 +28,14 @@ function Search() {
             setSearchResult([]);
             return;
         }
-        setLoading(true);
         //Call API
-        axios
-            .get('https://tiktok.fullstack.edu.vn/api/users/search', {
-                params: {
-                    q: debounced,
-                    type: 'less',
-                },
-            })
-            .then((res) => {
-                // console.log(res.data.data);
-                setSearchResult(res.data.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
+        const fetchApi = async () => {
+            setLoading(true);
+            const result = await searchServices.search(debounced);
+            setSearchResult(result);
+            setLoading(false);
+        };
+        fetchApi();
     }, [debounced]);
 
     const handleSearchClear = () => {
@@ -66,52 +56,65 @@ function Search() {
         setSearchValue(searchValue);
     };
     return (
-        <HeadlessTippy
-            interactive={true} //giúp tương tác với thanh tìm kiếm
-            visible={showSearchResult && searchResult.length > 0} //giá trị tìm kiếm > 0 thì hiện bảng tìm kiếm ở dưới
-            render={(attrs) => (
-                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <div className={cx('tab-account-search')}>
-                            <h4 className={cx('tab-title')}>Tài khoản</h4>
-                            {searchResult.map((result) => (
-                                <AccountItem key={result.id} data={result} />
-                            ))}
-                        </div>
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleHideResult}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputElement}
-                    value={searchValue}
-                    placeholder="Tìm kiếm tài khoản và video"
-                    spellCheck={false}
-                    onChange={handleChange}
-                    onFocus={() => setShowSearchResult(true)}
-                />
-                {!!searchValue && !loading && (
-                    <button className={cx('clear')} onClick={handleSearchClear}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
+        // Sử dụng div để fix warning tippy
+        <div>
+            <HeadlessTippy
+                interactive //giúp tương tác với thanh tìm kiếm
+                visible={showSearchResult && searchResult.length > 0} //giá trị tìm kiếm > 0 thì hiện bảng tìm kiếm ở dưới
+                render={(attrs) => (
+                    <div
+                        className={cx('search-result')}
+                        tabIndex="-1"
+                        {...attrs}
+                    >
+                        <PopperWrapper>
+                            <div className={cx('tab-account-search')}>
+                                <h4 className={cx('tab-title')}>Tài khoản</h4>
+                                {searchResult.map((result) => (
+                                    <AccountItem
+                                        key={result.id}
+                                        data={result}
+                                    />
+                                ))}
+                            </div>
+                        </PopperWrapper>
+                    </div>
                 )}
-                {loading && (
-                    <FontAwesomeIcon
-                        className={cx('loading')}
-                        icon={faSpinner}
+                onClickOutside={handleHideResult}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputElement}
+                        value={searchValue}
+                        placeholder="Tìm kiếm tài khoản và video"
+                        spellCheck={false}
+                        onChange={handleChange}
+                        onFocus={() => setShowSearchResult(true)}
                     />
-                )}
+                    {!!searchValue && !loading && (
+                        <button
+                            className={cx('clear')}
+                            onClick={handleSearchClear}
+                        >
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
+                    {loading && (
+                        <FontAwesomeIcon
+                            className={cx('loading')}
+                            icon={faSpinner}
+                        />
+                    )}
 
-                <button
-                    className={cx('search-btn')}
-                    onMouseDown={(e) => e.preventDefault()}
-                >
-                    <SearchIcon />
-                </button>
-            </div>
-        </HeadlessTippy>
+                    <button
+                        className={cx('search-btn')}
+                        onMouseDown={(e) => e.preventDefault()}
+                    >
+                        <SearchIcon />
+                    </button>
+                </div>
+            </HeadlessTippy>
+        </div>
     );
 }
 
