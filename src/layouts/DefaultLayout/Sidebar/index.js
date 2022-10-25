@@ -11,7 +11,7 @@ import {
 } from '~/components/Icons';
 import Menu from './Menu/Menu';
 import MenuItem from './Menu/MenuItem';
-import { config, routes } from '~/config';
+import { routes } from '~/config';
 
 const cx = classNames.bind(styles);
 function Sidebar() {

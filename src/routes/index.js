@@ -1,6 +1,6 @@
 import { routes } from '~/config';
 //Layout
-import HeaderOnly from '~/components/Layout/HeaderOnly';
+import HeaderOnly from '~/layouts/HeaderOnly';
 //Pages
 import Home from '~/pages/Home';
 import Following from '~/pages/Following';
