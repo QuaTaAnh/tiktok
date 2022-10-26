@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
@@ -8,6 +9,7 @@ function Button({
     to,
     href,
     onClick,
+    className,
     children,
     primary = false,
     outline = false,
@@ -37,7 +39,6 @@ function Button({
         onClick,
         ...passProps,
     };
-
     //Nếu có disabled thì không click được
     if (disabled) {
         delete props.disabled;
@@ -57,5 +58,23 @@ function Button({
         </Component>
     );
 }
+
+Button.propTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    children: PropTypes.node.isRequired,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    small: PropTypes.bool,
+    large: PropTypes.bool,
+    text: PropTypes.bool,
+    disabled: PropTypes.bool,
+    separate: PropTypes.bool,
+    rounded: PropTypes.bool,
+    leftIcon: PropTypes.node,
+    menuItem: PropTypes.bool,
+};
 
 export default Button;
