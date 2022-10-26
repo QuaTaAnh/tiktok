@@ -16,7 +16,7 @@ import {
 //
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import { Wrapper as Button } from '~/components/Button';
+import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { InboxIcon, MessageIcon } from '~/components/Icons';

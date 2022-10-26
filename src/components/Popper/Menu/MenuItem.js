@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
-import { Wrapper as Button } from '~/components/Button';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
