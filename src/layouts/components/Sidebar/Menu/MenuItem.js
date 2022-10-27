@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; //NavLink hỗ trợ active
 import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
@@ -19,10 +19,10 @@ function MenuItem({ to, icon, activeIcon, title }) {
 }
 
 MenuItem.propTypes = {
+    title: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
     icon: PropTypes.node.isRequired,
     activeIcon: PropTypes.node.isRequired,
-    title: PropTypes.string.isRequired,
 };
 
 export default MenuItem;
