@@ -12,6 +12,7 @@ import {
 import Menu from './Menu/Menu';
 import MenuItem from './Menu/MenuItem';
 import { routes } from '~/config';
+import SidebarAccounts from '~/components/SidebarAccounts';
 
 const cx = classNames.bind(styles);
 function Sidebar() {
@@ -37,6 +38,15 @@ function Sidebar() {
                     title="LIVE"
                 />
             </Menu>
+
+            <SidebarAccounts
+                label="Tài khoản được đề xuất"
+                moreBtn="Xem tất cả"
+            />
+            <SidebarAccounts
+                label="Các tài khoản đang follow"
+                moreBtn="Xem thêm"
+            />
         </aside>
     );
 }

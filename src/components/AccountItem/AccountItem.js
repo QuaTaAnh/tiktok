@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
@@ -24,7 +24,7 @@ function AccountItem({ data }) {
                         {data.tick && (
                             <FontAwesomeIcon
                                 className={cx('check')}
-                                icon={faCheckCircle}
+                                icon={faCircleCheck}
                             />
                         )}
                     </h4>
