@@ -56,6 +56,23 @@
     }
 }
 
+.primarySidebar {
+    color: var(--white);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    padding: 6px 28px;
+
+    &:hover {
+        border-color: var(--primary);
+        background: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.06),
+                rgba(0, 0, 0, 0.06)
+            ),
+            #fe2c55;
+    }
+}
+
 .outline {
     color: var(--primary);
     border-color: var(--primary);

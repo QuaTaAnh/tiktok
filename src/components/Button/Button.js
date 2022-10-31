@@ -12,6 +12,7 @@ function Button({
     className,
     children,
     primary = false,
+    primarySidebar = false,
     outline = false,
     small = false,
     large = false,
@@ -25,6 +26,7 @@ function Button({
 }) {
     const classes = cx('wrapper', {
         primary,
+        primarySidebar,
         outline,
         small,
         text,
