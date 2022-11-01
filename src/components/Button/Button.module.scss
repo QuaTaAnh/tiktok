@@ -76,6 +76,8 @@
 .outline {
     color: var(--primary);
     border-color: var(--primary);
+    display: flex;
+    justify-content: center;
 
     &:hover {
         border-color: var(--primary);
@@ -122,4 +124,12 @@
 .large {
     min-width: 148px;
     padding: 14px 16px;
+}
+
+.big {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    min-height: 48px;
+    margin-top: 20px;
 }

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
@@ -50,6 +50,6 @@ function AccountItem() {
     );
 }
 
-AccountItem.propTypes = {};
+// AccountItem.propTypes = {};
 
 export default AccountItem;

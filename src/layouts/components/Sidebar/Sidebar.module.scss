@@ -4,3 +4,24 @@
     width: var(--default-sidebar-width);
     padding: 20px 0 26px 8px;
 }
+
+.sidebar-login {
+    padding: 20px 8px 24px;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        top: 0;
+        height: 1px;
+        background-color: rgba(22, 24, 35, 0.12);
+        transform: scaleY(0.5);
+    }
+}
+
+.title-login {
+    color: #16182380;
+    font-size: 16px;
+    line-height: 22px;
+}

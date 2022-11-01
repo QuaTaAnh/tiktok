@@ -7,3 +7,10 @@
     background: rgb(255, 255, 255);
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
 }
+
+.renderMore {
+    padding: 15px 16px 20px;
+    &:hover a {
+        color: var(--primary);
+    }
+}

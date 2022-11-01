@@ -1,0 +1,43 @@
+.wrapper {
+    margin-top: 16px;
+    padding: 0 8px;
+}
+
+.hastag-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.hastag-item {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    width: fit-content;
+    font-size: 1.6rem;
+    padding: 3px 10px;
+    margin: 0 8px 12px 0;
+    border: 1px solid #16182333;
+    border-radius: 12px;
+    &:hover {
+        background-color: #16182308;
+        cursor: pointer;
+    }
+}
+
+.hastag-icon {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.music-icon {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.hastag-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 6px;
+    color: #161823bf;
+    font-weight: 400px;
+}
