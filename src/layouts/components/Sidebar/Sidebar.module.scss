@@ -3,6 +3,8 @@
     flex-direction: column;
     width: var(--default-sidebar-width);
     padding: 20px 0 26px 8px;
+    height: auto;
+    overflow: scroll;
 }
 
 .sidebar-login {
@@ -24,4 +26,10 @@
     color: #16182380;
     font-size: 16px;
     line-height: 22px;
+}
+
+.scroll {
+    height: 154.058px;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1)
+        scale(2.84049) translateZ(-1.84049px) translateZ(-2px);
 }

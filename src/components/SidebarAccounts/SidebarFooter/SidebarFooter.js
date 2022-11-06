@@ -133,8 +133,7 @@ function SidebarFooter() {
             <Tippy
                 interactive
                 placement="top"
-                delay={[0, 100]}
-                offset={[-70, 10]}
+                offset={[70, 10]}
                 render={renderMore}
             >
                 <div className={cx('footer-items')}>
